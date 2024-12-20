@@ -8,7 +8,7 @@ import About from "./components/About";
 import YourProfile from "./components/YourProfile";
 import Setting from "./components/Setting";
 import Notifications from "./components/Notifications";
-
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/profile" element={<YourProfile />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
 
         </Routes>
       </BrowserRouter>

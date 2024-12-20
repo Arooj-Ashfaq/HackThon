@@ -1,9 +1,52 @@
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 export default function Register() {
+
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setlastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  // const [userSave, setUserSave] = useState([])
+
+  // const getData = async () => {
+  //   try {
+  //     const userData = await axios.get("http://localhost:5000/user")
+  //     setUserSave(userData?.data?.user)
+  //   }
+  //   catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
+  // useEffect(() => {
+
+  //   getData()
+
+  // }, [])
+
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    navigate("/");
+  const handleSubmit = async () => {
+    
+    console.log("Function is working")
+    const body = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    }
+    try {
+      const userData = await axios.post("http://localhost:5000/user", body)
+      if (userData) {
+        alert(userData.data.message)
+        navigate("/profile")
+        // getData()
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }
   };
   return (
     <>
@@ -13,7 +56,7 @@ export default function Register() {
           <div className="border-b border-gray-400 pb-12">
             <br />
             <h3 className="text-balance text-4xl font-semibold tracking-tight text-gray-800 sm:text-4xl text-center">
-              Profile
+              Sign Up
             </h3>
           </div>
 
@@ -31,6 +74,7 @@ export default function Register() {
                     id="first-name"
                     name="first-name"
                     type="text"
+                    onChange={(e)=> setFirstName(e.target.value)}
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -49,6 +93,7 @@ export default function Register() {
                     id="last-name"
                     name="last-name"
                     type="text"
+                    onChange={(e)=> setlastName(e.target.value)}
                     autoComplete="family-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -67,6 +112,7 @@ export default function Register() {
                     id="email"
                     name="email"
                     type="email"
+                    onChange={(e)=> setEmail(e.target.value)}
                     autoComplete="email"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -85,6 +131,7 @@ export default function Register() {
                     id="password"
                     name="password"
                     type="password"
+                    onChange={(e)=> setPassword(e.target.value)}
                     autoComplete="password"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
