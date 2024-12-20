@@ -5,7 +5,10 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import About from "./components/About";
-import Contact from "./components/Contact";
+import YourProfile from "./components/YourProfile";
+import Setting from "./components/Setting";
+import Notifications from "./components/Notifications";
+
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<YourProfile />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/notifications" element={<Notifications />} />
+
         </Routes>
-        <Contact />
       </BrowserRouter>
     </div>
   );

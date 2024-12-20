@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import About from "./About";
 
 function Home() {
   const navigate = useNavigate();
@@ -32,6 +33,10 @@ function Home() {
           </div>
         </div>
       </div>
+     <div>
+      
+<About/>
+     </div>
     </div>
   );
 }
