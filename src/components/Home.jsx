@@ -33,10 +33,9 @@ function Home() {
           </div>
         </div>
       </div>
-     <div>
-      
-<About/>
-     </div>
+      <div>
+        <About />
+      </div>
     </div>
   );
 }

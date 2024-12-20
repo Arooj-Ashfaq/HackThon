@@ -8,7 +8,7 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About", href: "/about", current: false },
@@ -17,10 +17,10 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  const navigate = useNavigate()
-  const handleNotifications = () =>{
-    navigate('/notifications')
-  }
+  const navigate = useNavigate();
+  const handleNotifications = () => {
+    navigate("/notifications");
+  };
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -42,10 +42,16 @@ export default function Navbar() {
               </DisclosureButton>
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-              <Link to="/"><div className="flex shrink-0 items-center" >
-                <span className="h-10 w-auto text-blue-200 text-lg">Hack</span>{" "}
-                <span className="h-5 w-auto text-green-400 text-lg">Thon</span>
-              </div></Link>
+              <Link to="/">
+                <div className="flex shrink-0 items-center">
+                  <span className="h-10 w-auto text-blue-200 text-lg">
+                    Hack
+                  </span>{" "}
+                  <span className="h-5 w-auto text-green-400 text-lg">
+                    Thon
+                  </span>
+                </div>
+              </Link>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
@@ -63,7 +69,7 @@ export default function Navbar() {
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 type="button"
-                onClick={()=> handleNotifications()}
+                onClick={() => handleNotifications()}
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               >
                 <span className="absolute -inset-1.5" />

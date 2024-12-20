@@ -18,16 +18,16 @@ function YourProfile() {
           />
         </div>
         <div className="p-8">
-        <h1 className="text-balance text-2xl font-semibold tracking-tight text-gray-00 sm:text-5xl">
+          <h1 className="text-balance text-2xl font-semibold tracking-tight text-gray-00 sm:text-5xl">
             Welcome! Name
           </h1>
         </div>
       </div>
 
       <div>
-      <p className="mt-8 text-center text-pretty text-md font-medium text-black sm:text-xl/6">
-           Your Email : abc@example.com
-          </p>
+        <p className="mt-8 text-center text-pretty text-md font-medium text-black sm:text-xl/6">
+          Your Email : abc@example.com
+        </p>
       </div>
 
       <p className="mt-10 text-center text-sm/6 text-gray-500">

@@ -1,51 +1,32 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Register() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setlastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  // const [userSave, setUserSave] = useState([])
-
-  // const getData = async () => {
-  //   try {
-  //     const userData = await axios.get("http://localhost:5000/user")
-  //     setUserSave(userData?.data?.user)
-  //   }
-  //   catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
-  // useEffect(() => {
-
-  //   getData()
-
-  // }, [])
-
-  const navigate = useNavigate();
   const handleSubmit = async () => {
-    
-    console.log("Function is working")
+    toast.success("Account Created!");
+
+    console.log("Function is working");
     const body = {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password
-    }
+      password: password,
+    };
     try {
-      const userData = await axios.post("http://localhost:5000/user", body)
+      const userData = await axios.post("http://localhost:5000/user", body);
       if (userData) {
-        alert(userData.data.message)
-        navigate("/profile")
-        // getData()
+        alert(userData.data.message);
       }
-    }
-    catch (err) {
-      console.log(err)
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -74,7 +55,8 @@ export default function Register() {
                     id="first-name"
                     name="first-name"
                     type="text"
-                    onChange={(e)=> setFirstName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -93,7 +75,8 @@ export default function Register() {
                     id="last-name"
                     name="last-name"
                     type="text"
-                    onChange={(e)=> setlastName(e.target.value)}
+                    onChange={(e) => setlastName(e.target.value)}
+                    required
                     autoComplete="family-name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -112,7 +95,8 @@ export default function Register() {
                     id="email"
                     name="email"
                     type="email"
-                    onChange={(e)=> setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                     autoComplete="email"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -131,7 +115,8 @@ export default function Register() {
                     id="password"
                     name="password"
                     type="password"
-                    onChange={(e)=> setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
                     autoComplete="password"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-800 sm:text-sm/6"
                   />
@@ -169,6 +154,18 @@ export default function Register() {
         </Link>
       </p>
       <br />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

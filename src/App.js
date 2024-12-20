@@ -24,7 +24,6 @@ function App() {
           <Route path="/setting" element={<Setting />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-
         </Routes>
       </BrowserRouter>
     </div>

@@ -59,9 +59,10 @@ export default function About() {
               <p className="mt-4 text-lg text-justify text-gray-600">
                 Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
                 Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-                at. In mi viverra elit nunc.Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-                Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-                at. In mi viverra elit nunc.
+                at. In mi viverra elit nunc.Quis tellus eget adipiscing
+                convallis sit sit eget aliquet quis. Suspendisse eget egestas a
+                elementum pulvinar et feugiat blandit at. In mi viverra elit
+                nunc.
               </p>
             </div>
           </div>

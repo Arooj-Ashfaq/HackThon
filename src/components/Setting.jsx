@@ -1,6 +1,12 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Setting() {
+  const saveChanges = () => {
+    toast.success("Changes saved!");
+  };
+
   return (
     <>
       <div className="border-b border-gray-400 pb-12 m-auto max-w-96">
@@ -102,10 +108,25 @@ function Setting() {
         <button className="text-sm/6 font-semibold text-gray-900">
           Discard Changes
         </button>
-        <button className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-800">
+        <button
+          className="rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-800"
+          onClick={() => saveChanges()}
+        >
           Save
         </button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

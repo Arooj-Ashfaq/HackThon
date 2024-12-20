@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Login() {
-  const navigate = useNavigate();
   const handleSignin = () => {
-    navigate("/");
+    toast.success("Welcome back!");
   };
   return (
     <>
@@ -81,6 +82,18 @@ export default function Login() {
         </p>
       </div>
       <br />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
